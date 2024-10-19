@@ -49,7 +49,7 @@ public class HexEditor : TemplatedControl
 
         HexView.Layers.InsertBefore<TextLayer>(new CurrentLineLayer(Caret, Selection));
         HexView.Layers.InsertBefore<TextLayer>(new SelectionLayer(Caret, Selection));
-        HexView.Layers.Add(new CaretLayer(Caret));
+        // HexView.Layers.Add(new CaretLayer(Caret));
         HexView.DocumentChanged += HexViewOnDocumentChanged;
 
         Caret.PrimaryColumnIndex = 1;
