@@ -4,17 +4,17 @@
         <Title>AvaloniaHex</Title>
         <Description>A hex editor control for the Avalonia UI framework.</Description>
         <PackageTags>avalonia ui hex editor binary data visualizr</PackageTags>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <DocumentationFile>bin\Debug\net8.0\AvaloniaHex.xml</DocumentationFile>
+      <DocumentationFile>bin\Debug\net9.0\AvaloniaHex.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <DocumentationFile>bin\Release\net8.0\AvaloniaHex.xml</DocumentationFile>
+      <DocumentationFile>bin\Release\net9.0\AvaloniaHex.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
