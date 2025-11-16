@@ -11,7 +11,7 @@ namespace AvaloniaHex.Editing;
 /// </summary>
 public class CaretLayer : Layer
 {
-    private readonly DispatcherTimer _blinkTimer;
+    // private readonly DispatcherTimer _blinkTimer;
     private bool _caretVisible;
 
     static CaretLayer()
@@ -37,23 +37,23 @@ public class CaretLayer : Layer
         Caret.PrimaryColumnChanged += CaretOnChanged;
         IsHitTestVisible = false;
 
-        _blinkTimer = new DispatcherTimer
-        {
-            Interval = TimeSpan.FromSeconds(0.5),
-            IsEnabled = true
-        };
-
-        _blinkTimer.Tick += BlinkTimerOnTick;
+        // _blinkTimer = new DispatcherTimer
+        // {
+        //     Interval = TimeSpan.FromSeconds(0.5),
+        //     IsEnabled = true
+        // };
+        //
+        // _blinkTimer.Tick += BlinkTimerOnTick;
     }
     
     /// <inheritdoc />
-    protected override void OnUnloaded(RoutedEventArgs e)
-    {
-        base.OnUnloaded(e);
-
-        _blinkTimer.IsEnabled = false;
-        _blinkTimer.Tick -= BlinkTimerOnTick;
-    }
+    // protected override void OnUnloaded(RoutedEventArgs e)
+    // {
+    //     base.OnUnloaded(e);
+    //
+    //     _blinkTimer.IsEnabled = false;
+    //     _blinkTimer.Tick -= BlinkTimerOnTick;
+    // }
 
     /// <inheritdoc />
     public override LayerRenderMoments UpdateMoments => LayerRenderMoments.NoResizeRearrange;
@@ -79,23 +79,23 @@ public class CaretLayer : Layer
         }
     }
 
-    /// <summary>
-    /// Defines the <see cref="BlinkingInterval"/> property.
-    /// </summary>
-    public static readonly DirectProperty<CaretLayer, TimeSpan> BlinkingIntervalProperty =
-        AvaloniaProperty.RegisterDirect<CaretLayer, TimeSpan>(nameof(BlinkingInterval),
-            x => x.BlinkingInterval,
-            (x, v) => x.BlinkingInterval = v,
-            unsetValue: TimeSpan.FromMilliseconds(500));
+    // /// <summary>
+    // /// Defines the <see cref="BlinkingInterval"/> property.
+    // /// </summary>
+    // public static readonly DirectProperty<CaretLayer, TimeSpan> BlinkingIntervalProperty =
+    //     AvaloniaProperty.RegisterDirect<CaretLayer, TimeSpan>(nameof(BlinkingInterval),
+    //         x => x.BlinkingInterval,
+    //         (x, v) => x.BlinkingInterval = v,
+    //         unsetValue: TimeSpan.FromMilliseconds(500));
 
-    /// <summary>
-    /// Gets or sets the animation interval of the cursor blinker.
-    /// </summary>
-    public TimeSpan BlinkingInterval
-    {
-        get => _blinkTimer.Interval;
-        set => _blinkTimer.Interval = value;
-    }
+    // /// <summary>
+    // /// Gets or sets the animation interval of the cursor blinker.
+    // /// </summary>
+    // public TimeSpan BlinkingInterval
+    // {
+    //     get => _blinkTimer.Interval;
+    //     set => _blinkTimer.Interval = value;
+    // }
 
     /// <summary>
     /// Defines the <see cref="InsertCaretWidth"/> property.
@@ -112,21 +112,21 @@ public class CaretLayer : Layer
         set => SetValue(InsertCaretWidthProperty, value);
     }
 
-    /// <summary>
-    /// Gets or sets a value indicating whether the cursor of the caret is blinking.
-    /// </summary>
-    public bool IsBlinking
-    {
-        get => _blinkTimer.IsEnabled;
-        set
-        {
-            if (_blinkTimer.IsEnabled != value)
-            {
-                _blinkTimer.IsEnabled = value;
-                CaretVisible = true;
-            }
-        }
-    }
+    // /// <summary>
+    // /// Gets or sets a value indicating whether the cursor of the caret is blinking.
+    // /// </summary>
+    // public bool IsBlinking
+    // {
+    //     get => _blinkTimer.IsEnabled;
+    //     set
+    //     {
+    //         if (_blinkTimer.IsEnabled != value)
+    //         {
+    //             _blinkTimer.IsEnabled = value;
+    //             CaretVisible = true;
+    //         }
+    //     }
+    // }
 
     /// <summary>
     /// Defines the <see cref="PrimaryColumnBorder"/> property.
